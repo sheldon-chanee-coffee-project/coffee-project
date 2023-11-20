@@ -43,6 +43,7 @@ function updateCoffees(e) {
     coffeeContainerElement.innerHTML = renderCoffees(filteredCoffees);
 }
 
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
@@ -97,3 +98,6 @@ function addCoffee(e) {
 
 const addForm = document.querySelector("#submitForm");
 addForm.addEventListener('submit', addCoffee);
+
+roastSelection.addEventListener('change', updateCoffees);
+coffeeName.addEventListener('input', updateCoffees);
