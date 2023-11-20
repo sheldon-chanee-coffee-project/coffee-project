@@ -25,6 +25,7 @@ function renderCoffees(coffees) {
 }
 
 function updateCoffees(e) {
+    alert("submit clicked...");
     e.preventDefault(); // don't submit the form, we just want to update the data
     const selectedRoast = roastSelection.value;
     const filteredCoffees = [];
@@ -59,8 +60,8 @@ coffees.sort((a, b) => a.id - b.id);
 
 const submitButton = document.querySelector('#submit');
 const roastSelection = document.querySelector('#roast-selection');
-const coffeeContainerElement = document.querySelector('#coffee-container');
 
+const coffeeContainerElement = document.querySelector('#coffee-container');
 coffeeContainerElement.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
