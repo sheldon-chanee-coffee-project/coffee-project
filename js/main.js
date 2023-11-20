@@ -25,15 +25,17 @@ function renderCoffees(coffees) {
 }
 
 function updateCoffees(e) {
-    e.preventDefault(); // don't submit the form, we just want to update the data
+    if (e) { // Note: Because we call this function in addCoffee(), an 'e' won't be passed in our specific use case.
+        e.preventDefault(); // don't submit the form, we just want to update the data
+    }
     const selectedRoast = roastSelection.value.toLowerCase();
-    const selectedCoffeeName = coffeeName.value.toLowerCase();
+    const selectedCoffeeName = coffeeName.value.toLowerCase().trim();
     const filteredCoffees = [];
     coffees.forEach(coffee => {
         let cRoast = coffee.roast.toLowerCase();
         let cName = coffee.name.toLowerCase();
         let shouldCoffeeBeAdd = (selectedCoffeeName === "" || cName.indexOf(selectedCoffeeName) >= 0) && (selectedRoast === "all" || cRoast === selectedRoast);
-        if (shouldCoffeeBeAdd === true){
+        if (shouldCoffeeBeAdd === true) {
             filteredCoffees.push(coffee)
         }
     });
@@ -70,3 +72,28 @@ const coffeeContainerElement = document.querySelector('#coffee-container');
 coffeeContainerElement.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
+
+function addCoffee(e) {
+    e.preventDefault();
+
+    let selectedRoast = document.querySelector('#add-roast-selection').value;
+    let selectedName = document.querySelector('#name').value.trim();
+
+    if (selectedName=== "") {
+        alert("Please enter a coffee name.")
+        return;
+    }
+
+    let newCoffee = {
+        id: coffees.length + 1,
+        name: selectedName,
+        roast: selectedRoast
+    }
+
+    coffees.push(newCoffee);
+
+    updateCoffees();
+}
+
+const addForm = document.querySelector("#submitForm");
+addForm.addEventListener('submit', addCoffee);
