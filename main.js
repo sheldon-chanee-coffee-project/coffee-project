@@ -48,6 +48,9 @@ const coffees = [
     {id: 14, name: 'French', roast: 'dark'},
 ];
 
+//should not see the id in the final product//
+//fixed to ascending order//
+
 const tbody = document.querySelector('#coffees');
 const submitButton = document.querySelector('#submit');
 const roastSelection = document.querySelector('#roast-selection');
