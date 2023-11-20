@@ -6,59 +6,64 @@
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet"/>
     <title>Coffee Project</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h1>Coffee!</h1>
-<div class="container">
-    <hr/>
+<h1 id="page-title">Coffee!</h1>
 
-    <form>
-        <label for="roast-selection"></label>
-        <select id="roast-selection" class="form-select" aria-label="Default select example">
-            <option value="all">all</option>
-            <option value="light">light</option>
-            <option value="medium">medium</option>
-            <option value="dark">dark</option>
-        </select>
-        <div class="mb-3">
-            <label for="coffeeName" class="form-label">Coffee Name</label>
-            <input type="text" class="form-control" id="coffeeName">
-        </div>
-        <button id="submit" class="btn btn-primary w-100" type="submit">Submit</button></form>
-    <h2>Add a Coffee</h2>
-    <form>
-        <label for="add-roast-selection"></label>
-        <select id="add-roast-selection" class="form-select" aria-label="Default select example">
-            <option value="light">light</option>
-            <option value="medium">medium</option>
-            <option value="dark">dark</option>
-        </select>
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name">
-        </div>
-        <button id="add-submit" class="btn btn-primary w-100" type="submit">Submit</button>
-    </form>
-</div>
+<main>
 
-<div id="coffeeContainer">
-<!--    <table>-->
-<!--        <thead>-->
-<!--        <tr>-->
-<!--            <th>ID</th>-->
-<!--            <th>NAME</th>-->
-<!--            <th>ROAST</th>-->
-<!--        </tr>-->
-<!--        </thead>-->
-<!--        <tbody id="coffees"></tbody>-->
-<!--    </table>-->
-</div>
+    <div class="container">
+        <hr/>
+        <div class="row">
+            <div class="col left-col">
+                <div id="coffee-container" class="border">
+                </div>
+            </div>
+            <div class="col right-col">
+                <form>
+                    <label for="roast-selection"><strong>Roast</strong></label>
+                    <select id="roast-selection" class="form-select" aria-label="Default select example">
+                        <option value="all">all</option>
+                        <option value="light">light</option>
+                        <option value="medium">medium</option>
+                        <option value="dark">dark</option>
+                    </select>
+                    <div class="mb-3">
+                        <label for="coffeeName" class="form-label"><strong>Coffee Name</strong></label>
+                        <input type="text" class="form-control" id="coffeeName">
+                    </div>
+                    <button id="submit" class="btn btn-primary w-100" type="submit">Search</button>
+                </form>
+                <hr>
+                <h2 id="sub-title">Add a Coffee</h2>
+                <form>
+                    <label for="add-roast-selection"><strong>Roast</strong></label>
+                    <select id="add-roast-selection" class="form-select" aria-label="Default select example">
+                        <option value="light">light</option>
+                        <option value="medium">medium</option>
+                        <option value="dark">dark</option>
+                    </select>
+                    <div class="mb-3">
+                        <label for="name" class="form-label"><strong>Name</strong></label>
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                    <button id="add-submit" class="btn btn-primary w-100" type="submit">Add New Coffee</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</main>
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script crossorigin="anonymous"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="main.js"></script>
+
+<script defer src="js/main.js"></script>
+
 </body>
+
 </html>
