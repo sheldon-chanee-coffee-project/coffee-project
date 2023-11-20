@@ -70,7 +70,6 @@ const roastSelection = document.querySelector('#roast-selection');
 const coffeeName = document.querySelector('#coffeeName');
 
 const coffeeContainerElement = document.querySelector('#coffee-container');
-coffeeContainerElement.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
@@ -80,7 +79,7 @@ function addCoffee(e) {
     let selectedRoast = document.querySelector('#add-roast-selection').value;
     let selectedName = document.querySelector('#name').value.trim();
 
-    if (selectedName=== "") {
+    if (selectedName === "") {
         alert("Please enter a coffee name.")
         return;
     }
@@ -93,6 +92,11 @@ function addCoffee(e) {
 
     coffees.push(newCoffee);
 
+    saveToLocalStorage('coffeeArrayData', coffees);
+
+    // When the form is submitted, the new coffee should appear on the page, Do this by resetting the current filters
+    roastSelection.value = "all";
+    coffeeName.value = "";
     updateCoffees();
 }
 
@@ -101,3 +105,22 @@ addForm.addEventListener('submit', addCoffee);
 
 roastSelection.addEventListener('change', updateCoffees);
 coffeeName.addEventListener('input', updateCoffees);
+
+// (Note that any new coffees you add will be lost when you refresh the page, for an extra challenge,
+// research how localStorage works and see if you can find a way to persist the data)
+
+function saveToLocalStorage(key, value) {
+    window.localStorage.setItem(key, JSON.stringify(value));
+}
+
+function getFromLocalStorage(key) {
+    return JSON.parse(window.localStorage.getItem(key));
+}
+
+let testArray = getFromLocalStorage('coffeeArrayData');
+
+if (testArray) {
+    coffees = testArray;
+}
+
+coffeeContainerElement.innerHTML = renderCoffees(coffees);
