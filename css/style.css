@@ -1,8 +1,23 @@
+:root {
+    --header-background: #642d06;
+    --header-text-color: rgba(255, 237, 158, 0.71);
+    --main-background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../img/coffeecup.png");
+    --body-text-color: #642d06;
+    --coffee-container-background: rgba(100, 45, 6, 0.42);
+    --coffee-container-hover-background: rgba(139, 69, 19, 0.53);
+    --coffee-container-hover-text-color: #FFED9EB5;
+    --light-background: rgba(255, 237, 158, 0.71);
+    --medium-background: rgba(189, 167, 75, 0.71);
+    --dark-background: rgba(131, 110, 3, 0.71);
+    --select-border: rgba(105, 47, 5, 0.61);
+    --btn-background: #642d06;
+    --btn-text-color: rgba(255, 237, 158, 0.71);
+    --btn-hover-background: rgba(255, 237, 158, 0.71);
+}
 /* header */
 #page-title {
     text-align: center;
 }
-
 header {
     position: fixed;
     top: 0;
@@ -12,11 +27,10 @@ header {
     justify-content: center;
     align-items: center;
     height: 80px;
-    background: #642d06;
     z-index: 1000;
-    color: rgba(255, 237, 158, 0.71);
+    background: var(--header-background);
+    color: var(--header-text-color);
 }
-
 header img {
     position: absolute;
     left: 10px;
@@ -25,16 +39,13 @@ header img {
     margin-left: 10px;
     justify-content: left;
 }
-
 /* main */
 main {
     margin-top: 80px;
 }
-
 body {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../img/coffeecup.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -42,67 +53,58 @@ body {
     justify-content: center;
     width: 100%;
     font-family: 'Reggae One', cursive;
-    color: #642d06;
+    background-image: var(--main-background);
+    color: var(--body-text-color);
 }
-
 /* left side coffee container */
 h2 {
     text-align: center;
 }
-
 #coffee-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
-
 .coffee {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     width: 130px;
     margin: .25em;
-    background-color: rgba(100, 45, 6, 0.42);
+    background-color: var(--coffee-container-background);
     border-radius: 5px;
     justify-content: center;
     padding: 0 2px;
     overflow: hidden;
 }
 .coffee:hover {
-    background: rgba(139, 69, 19, 0.53);
-    color: #FFED9EB5;
+    background: var(--coffee-container-hover-background);
+    color: var(--coffee-container-hover-text-color);
 }
-
 .light {
-    background: rgba(255, 237, 158, 0.71);
+    background: var(--light-background);
     border: rgba(105, 47, 5, 0.89) solid 3px;
 }
-
 .medium {
-    background: rgba(189, 167, 75, 0.71);
+    background: var(--medium-background);
     border: rgba(105, 47, 5, 0.89) solid 3px;
 }
-
 .dark {
-    background: rgba(131, 110, 3, 0.71);
+    background: var(--dark-background);
     border: rgba(105, 47, 5, 0.89) solid 3px;
 }
-
 /* right side sub-title 'add coffee' */
 #sub-title {
     text-align: center;
 }
 select {
-    border: rgba(105, 47, 5, 0.61) solid 3px !important;
+    border: var(--select-border) solid 3px !important;
 }
-
 .form-control {
     border: rgba(105, 47, 5, 0.61) solid 2px !important;
 }
-
 /* btns */
 .btn {
-    color: rgba(255, 237, 158, 0.71);
     font-size: x-large;
     line-height: 19px;
     padding: 14px;
@@ -110,13 +112,53 @@ select {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-    background: #642d06;
     border: none;
+    color: var(--btn-text-color);
+    background: var(--btn-background);
 }
-
 .btn:hover {
-    background: rgba(255, 237, 158, 0.71);
+    background: var(--btn-hover-background);
+}
+/* Footer Styles */
+footer {
+    background-color: #642d06;
+    color: rgba(255, 237, 158, 0.71);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+footer a {
+    color: rgba(255, 237, 158, 0.71);
+    text-decoration: none;
+    margin: 0 10px;
+}
+footer a:hover {
+    color: #ffffff;
+}
+#subscribe-form {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+#subscribe-input {
+    padding: 5px;
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+#subscribe-btn {
+    padding: 5px 10px;
+    background-color: #642d06;
+    color: rgba(255, 237, 158, 0.71);
+    border: none;
+    cursor: pointer;
+}
+#unsubscribe-link {
+    margin-top: 5px;
+}
 
 
