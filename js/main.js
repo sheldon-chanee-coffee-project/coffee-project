@@ -8,10 +8,20 @@ function renderCoffee(coffee) {
 
     let html = `
     <div class="coffee">
-        <h3>${coffee.name}</h3>
-        <p>${coffee.roast}</p>
+        <h4>${coffee.name}</h4>
+        <p class="${coffee.roast}">${coffee.roast}</p>
+        <span title="Click to delete this item" onclick="removeItem(${coffee.id})" class="btnDelete" data-id="${coffee.id}">&times;</span>
     </div>
     `;
+
+    if (coffee.id <= 14) {
+        html = `
+        <div class="coffee">
+            <h4>${coffee.name}</h4>
+            <p class="${coffee.roast}">${coffee.roast}</p>
+        </div>
+        `;
+    }
 
     return html;
 }
@@ -46,32 +56,40 @@ function updateCoffees(e) {
 
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
+    { id: 1, name: 'Light City', roast: 'light' },
+    { id: 2, name: 'Half City', roast: 'light' },
+    { id: 3, name: 'Cinnamon', roast: 'light' },
+    { id: 4, name: 'City', roast: 'medium' },
+    { id: 5, name: 'American', roast: 'medium' },
+    { id: 6, name: 'Breakfast', roast: 'medium' },
+    { id: 7, name: 'High', roast: 'dark' },
+    { id: 8, name: 'Continental', roast: 'dark' },
+    { id: 9, name: 'New Orleans', roast: 'dark' },
+    { id: 10, name: 'European', roast: 'dark' },
+    { id: 11, name: 'Espresso', roast: 'dark' },
+    { id: 12, name: 'Viennese', roast: 'dark' },
+    { id: 13, name: 'Italian', roast: 'dark' },
+    { id: 14, name: 'French', roast: 'dark' },
 ];
 
 // When the page loads, the coffees should be sorted by their ids in ascending order
 coffees.sort((a, b) => a.id - b.id);
 
 const submitButton = document.querySelector('#submit');
+const clearButton = document.querySelector('#clearBtn');
 const roastSelection = document.querySelector('#roast-selection');
 const coffeeName = document.querySelector('#coffeeName');
 
 const coffeeContainerElement = document.querySelector('#coffee-container');
 
 submitButton.addEventListener('click', updateCoffees);
+clearButton.addEventListener('click', clearSearch);
+
+function clearSearch() {
+    roastSelection.value = 'all';
+    coffeeName.value = '';
+    updateCoffees();
+}
 
 function addCoffee(e) {
     e.preventDefault();
@@ -85,7 +103,7 @@ function addCoffee(e) {
     }
 
     let newCoffee = {
-        id: coffees.length + 1,
+        id: 1 + getHighestId(coffees), // coffees.length + 1 // <-- Note: Better alternative
         name: selectedName,
         roast: selectedRoast
     }
@@ -95,8 +113,9 @@ function addCoffee(e) {
     saveToLocalStorage('coffeeArrayData', coffees);
 
     // When the form is submitted, the new coffee should appear on the page, Do this by resetting the current filters
-    roastSelection.value = "all";
-    coffeeName.value = "";
+    roastSelection.value = selectedRoast;
+    coffeeName.value = selectedName;
+    document.querySelector('#name').value = '';
     updateCoffees();
 }
 
@@ -123,4 +142,24 @@ if (testArray) {
     coffees = testArray;
 }
 
-coffeeContainerElement.innerHTML = renderCoffees(coffees);
+function getHighestId(array) {
+    return array.reduce((prev, curr) => {
+        return prev > curr.id ? prev : curr.id;
+    });
+}
+
+function removeItem(id) {
+    if (id <= 14) {
+        alert("You cannot remove an original coffee!");
+        return;
+    }
+    console.log("Remove item with id: " + id);
+    let searchIndex = coffees.findIndex((item) => item.id === id);
+    if (searchIndex >= 0) {
+        coffees.splice(searchIndex, 1);
+        saveToLocalStorage('coffeeArrayData', coffees);
+        updateCoffees();
+    }
+}
+
+updateCoffees(); // on startup, update/view all coffees
