@@ -37,7 +37,7 @@
             }
         });
         coffeeContainerElement.innerHTML = renderCoffees(filteredCoffees);
-        console.log(coffees);
+
     }
 
     // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
