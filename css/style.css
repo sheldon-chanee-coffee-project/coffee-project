@@ -70,18 +70,22 @@ h2 {
 }
 .coffee:hover {
     background: rgba(139, 69, 19, 0.53);
+    color: #FFED9EB5;
 }
 
 .light {
     background: rgba(255, 237, 158, 0.71);
+    border: rgba(105, 47, 5, 0.89) solid 3px;
 }
 
 .medium {
     background: rgba(189, 167, 75, 0.71);
+    border: rgba(105, 47, 5, 0.89) solid 3px;
 }
 
 .dark {
     background: rgba(131, 110, 3, 0.71);
+    border: rgba(105, 47, 5, 0.89) solid 3px;
 }
 
 /* right side sub-title 'add coffee' */
@@ -89,9 +93,11 @@ h2 {
     text-align: center;
 }
 select {
-    background-color: red !important;
-    box-shadow: purple !important;
-    color: white!important;
+    border: rgba(105, 47, 5, 0.61) solid 3px !important;
+}
+
+.form-control {
+    border: rgba(105, 47, 5, 0.61) solid 2px !important;
 }
 
 /* btns */
