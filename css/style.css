@@ -1,4 +1,4 @@
-/*header*/
+/* header */
 #page-title {
     text-align: center;
 }
@@ -26,7 +26,7 @@ header img {
     justify-content: left;
 }
 
-/*main*/
+/* main */
 main {
     margin-top: 80px;
 }
@@ -45,7 +45,7 @@ body {
     color: #642d06;
 }
 
-/*left side coffee container*/
+/* left side coffee container */
 h2 {
     text-align: center;
 }
@@ -69,12 +69,24 @@ h2 {
     overflow: hidden;
 }
 
-/*right side sub-title 'add coffee'*/
+.light {
+    background: rgba(255, 237, 158, 0.71);
+}
+
+.medium {
+    background: rgba(189, 167, 75, 0.71);
+}
+
+.dark {
+    background: rgba(131, 110, 3, 0.71);
+}
+
+/* right side sub-title 'add coffee' */
 #sub-title {
     text-align: center;
 }
 
-/*btns*/
+/* btns */
 .btn {
     color: rgba(255, 237, 158, 0.71);
     font-size: x-large;
@@ -92,15 +104,5 @@ h2 {
     background: rgba(255, 237, 158, 0.71);
 }
 
-.light {
-    background: rgba(255, 237, 158, 0.71);
-}
 
-.medium {
-    background: rgba(189, 167, 75, 0.71);
-}
-
-.dark {
-    background: rgba(131, 110, 3, 0.71);
-}
 
