@@ -68,10 +68,12 @@ h2 {
     padding: 0 2px;
     overflow: hidden;
 }
+.coffee:hover {
+    background: rgba(139, 69, 19, 0.53);
+}
 
 .light {
     background: rgba(255, 237, 158, 0.71);
-    border: purple solid 1px;
 }
 
 .medium {
@@ -85,6 +87,11 @@ h2 {
 /* right side sub-title 'add coffee' */
 #sub-title {
     text-align: center;
+}
+select {
+    background-color: red !important;
+    box-shadow: purple !important;
+    color: white!important;
 }
 
 /* btns */
