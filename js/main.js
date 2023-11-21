@@ -8,8 +8,8 @@ function renderCoffee(coffee) {
 
     let html = `
     <div class="coffee">
-        <h3>${coffee.name}</h3>
-        <p>${coffee.roast}</p>
+        <h4 class="w-100 text-center">${coffee.name}</h4>
+        <p class="w-100 text-center">${coffee.roast}</p>
     </div>
     `;
 
