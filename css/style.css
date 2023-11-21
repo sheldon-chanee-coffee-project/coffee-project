@@ -35,20 +35,19 @@ th {
 }
 
 .coffee {
-    width: 150px;
-    gap: .5em;
-    margin: .5em;
-    padding: .5em;
+    width: 140px;
+    margin: .25em;
+    padding: .25em;
     position: relative;
+    cursor: pointer;
 }
 
 .btnDelete {
+    color: red;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -5px;
+    right: -5px;
     cursor: pointer;
-    border: 1px solid red;
-    border-radius: 50%;
     width: 25px;
     height: 25px;
     display: flex;
