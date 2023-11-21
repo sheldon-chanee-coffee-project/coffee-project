@@ -2,30 +2,36 @@
 #page-title {
     text-align: center;
 }
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 80px;
     background: #642d06;
     z-index: 1000;
     color: rgba(255, 237, 158, 0.71);
 }
-#header-img{
+
+header img {
+    position: absolute;
+    left: 10px;
     width: 70px;
     height: auto;
     margin-left: 10px;
     justify-content: left;
 }
+
 /*main*/
-main{
+main {
     margin-top: 80px;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../img/coffeecup.png");
@@ -38,12 +44,13 @@ body{
     font-family: 'Reggae One', cursive;
     color: #642d06;
 }
+
 /*left side coffee container*/
-h2{
+h2 {
     text-align: center;
 }
-#coffee-container{
-    background: rgba(255, 255, 255, 0.49);
+
+#coffee-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -59,10 +66,11 @@ h2{
     border-radius: 5px;
     justify-content: center;
     padding: 0 2px;
+    overflow: hidden;
 }
 
 /*right side sub-title 'add coffee'*/
-#sub-title{
+#sub-title {
     text-align: center;
 }
 
@@ -79,9 +87,20 @@ h2{
     background: #642d06;
     border: none;
 }
+
 .btn:hover {
     background: rgba(255, 237, 158, 0.71);
 }
 
+.light {
+    background: rgba(255, 237, 158, 0.71);
+}
 
+.medium {
+    background: rgba(189, 167, 75, 0.71);
+}
+
+.dark {
+    background: rgba(131, 110, 3, 0.71);
+}
 

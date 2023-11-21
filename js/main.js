@@ -7,7 +7,7 @@ function renderCoffee(coffee) {
     // Don't display the ids, these are only for our application's internal use.
 
     let html = `
-    <div class="coffee">
+    <div class="coffee ${coffee.roast}">
         <h4 class="w-100 text-center">${coffee.name}</h4>
         <p class="w-100 text-center">${coffee.roast}</p>
     </div>
@@ -95,8 +95,9 @@ function addCoffee(e) {
     saveToLocalStorage('coffeeArrayData', coffees);
 
     // When the form is submitted, the new coffee should appear on the page, Do this by resetting the current filters
-    roastSelection.value = "all";
-    coffeeName.value = "";
+    roastSelection.value = selectedRoast;
+    coffeeName.value = selectedName;
+    document.querySelector('#name').value = '';
     updateCoffees();
 }
 
@@ -105,6 +106,13 @@ addForm.addEventListener('submit', addCoffee);
 
 roastSelection.addEventListener('change', updateCoffees);
 coffeeName.addEventListener('input', updateCoffees);
+
+const btnClear = document.querySelector('#btnClear');
+btnClear.addEventListener('click', () => {
+    roastSelection.value = 'all';
+    coffeeName.value = '';
+    updateCoffees();
+});
 
 // (Note that any new coffees you add will be lost when you refresh the page, for an extra challenge,
 // research how localStorage works and see if you can find a way to persist the data)
