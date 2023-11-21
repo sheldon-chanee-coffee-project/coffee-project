@@ -71,6 +71,7 @@ h2 {
 
 .light {
     background: rgba(255, 237, 158, 0.71);
+    border: purple solid 1px;
 }
 
 .medium {
