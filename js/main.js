@@ -1,25 +1,5 @@
 "use strict";
 
-// (() => {
-
-/**
- * deleteCoffeeById - global function to delete a coffee by id
- * @param {*} id 
- * @param {*} array 
- */
-function deleteCoffeeById(id) {
-    let confirmDelete = confirm("Are you sure you want to delete this coffee?");
-    if (confirmDelete === true) {
-        let index = coffees.findIndex(coffee => coffee.id === id);
-        if (index >= 0) {
-            coffees.splice(index, 1);
-
-        }
-        saveToLocalStorage('coffeeArrayData', coffees);
-        updateCoffees();
-    }
-}
-
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 let coffees = [
     { id: 1, name: 'Light City', roast: 'light' },
@@ -138,6 +118,23 @@ function addCoffee(e) {
     updateCoffees();
 }
 
+/**
+ * deleteCoffeeById - function to delete a coffee by id
+ * @param {*} id 
+ * @param {*} array 
+ */
+function deleteCoffeeById(id) {
+    let confirmDelete = confirm("Are you sure you want to delete this coffee?");
+    if (confirmDelete === true) {
+        let index = coffees.findIndex(coffee => coffee.id === id);
+        if (index >= 0) {
+            coffees.splice(index, 1);
+        }
+        saveToLocalStorage('coffeeArrayData', coffees);
+        updateCoffees();
+    }
+}
+
 function clearAddForm() {
     roastSelection.value = 'all';
     coffeeName.value = '';
@@ -168,5 +165,3 @@ function initialize() {
 }
 
 initialize();
-
-// })(); // IIFE
