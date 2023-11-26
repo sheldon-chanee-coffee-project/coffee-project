@@ -14,10 +14,12 @@
     --btn-text-color: rgba(255, 237, 158, 0.71);
     --btn-hover-background: rgba(255, 237, 158, 0.71);
 }
+
 /* header */
 #page-title {
     text-align: center;
 }
+
 header {
     position: fixed;
     top: 0;
@@ -31,6 +33,7 @@ header {
     background: var(--header-background);
     color: var(--header-text-color);
 }
+
 header img {
     position: absolute;
     left: 10px;
@@ -39,10 +42,12 @@ header img {
     margin-left: 10px;
     justify-content: left;
 }
+
 /* main */
 main {
     margin-top: 80px;
 }
+
 body {
     display: flex;
     flex-direction: column;
@@ -56,15 +61,18 @@ body {
     background-image: var(--main-background);
     color: var(--body-text-color);
 }
+
 /* left side coffee container */
 h2 {
     text-align: center;
 }
+
 #coffee-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+
 .coffee {
     display: flex;
     flex-wrap: wrap;
@@ -77,32 +85,52 @@ h2 {
     padding: 0 2px;
     overflow: hidden;
 }
+
 .coffee:hover {
     background: var(--coffee-container-hover-background);
     color: var(--coffee-container-hover-text-color);
 }
+
+.deleteBtn {
+    background: var(--coffee-container-hover-background);
+    border: none;
+    color: var(--coffee-container-hover-text-color);
+    cursor: pointer;
+    margin: 5px 5px;
+}
+
+.deleteBtn:hover {
+    text-decoration: underline;
+}
+
 .light {
     background: var(--light-background);
     border: rgba(105, 47, 5, 0.89) solid 3px;
 }
+
 .medium {
     background: var(--medium-background);
     border: rgba(105, 47, 5, 0.89) solid 3px;
 }
+
 .dark {
     background: var(--dark-background);
     border: rgba(105, 47, 5, 0.89) solid 3px;
 }
+
 /* right side sub-title 'add coffee' */
 #sub-title {
     text-align: center;
 }
+
 select {
     border: var(--select-border) solid 3px !important;
 }
+
 .form-control {
     border: rgba(105, 47, 5, 0.61) solid 2px !important;
 }
+
 /* btns */
 .btn {
     font-size: x-large;
@@ -116,9 +144,11 @@ select {
     color: var(--btn-text-color);
     background: var(--btn-background);
 }
+
 .btn:hover {
     background: var(--btn-hover-background);
 }
+
 /* Footer Styles */
 footer {
     background-color: #642d06;
@@ -129,17 +159,20 @@ footer {
     flex-direction: column;
     align-items: baseline;
     align-content: center;
-    gap:30px 20px;
+    gap: 30px 20px;
 }
+
 footer a {
     color: rgba(255, 237, 158, 0.71);
     text-decoration: none;
     margin: 0 5px;
     padding: 0 2px;
 }
+
 footer a:hover {
     color: #ffffff;
 }
+
 #subscribe-form {
     display: flex;
     align-items: center;
@@ -161,4 +194,3 @@ footer a:hover {
 /**{*/
 /*    border: 1px solid grey;*/
 /*}*/
-
