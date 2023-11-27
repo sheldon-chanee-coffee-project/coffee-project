@@ -122,21 +122,6 @@
         return JSON.parse(window.localStorage.getItem(key));
     }
 
-    function initialize() {
-
-        let loadedCoffees = getFromLocalStorage('coffeeArrayData');
-
-        if (loadedCoffees) {
-            coffees = loadedCoffees;
-        }
-
-        coffees.sort((a, b) => a.id - b.id);
-
-        coffeeContainerElement.innerHTML = renderCoffees(coffees);
-    }
-
-    initialize();
-
     function modal(mhead, mbody){
         let modalHead = document.querySelector("#modalHead");
         let modalBody = document.querySelector("#modalBody");
@@ -150,8 +135,23 @@
         },{once:true});
     }
 
-    let mHead = "Wecome!"
-    let mBody = "<i>Welcome!</i>"
-    modal(mHead, mBody)
+    function initialize() {
+
+        let loadedCoffees = getFromLocalStorage('coffeeArrayData');
+
+        if (loadedCoffees) {
+            coffees = loadedCoffees;
+        }
+
+        coffees.sort((a, b) => a.id - b.id);
+
+        coffeeContainerElement.innerHTML = renderCoffees(coffees);
+
+        let mHead = "Welcome!"
+        let mBody = "<i>Welcome!</i>"
+        modal(mHead, mBody)
+    }
+
+    initialize();
 
 })(); // IIFE
