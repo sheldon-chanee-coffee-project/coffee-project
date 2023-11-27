@@ -75,7 +75,6 @@
             }
         });
         coffeeContainerElement.innerHTML = renderCoffees(filteredCoffees);
-
     }
 
     function getHighestId(array) {
