@@ -137,4 +137,21 @@
 
     initialize();
 
+    function modal(mhead, mbody){
+        let modalHead = document.querySelector("#modalHead");
+        let modalBody = document.querySelector("#modalBody");
+        modalHead.innerText = mhead;
+        modalBody.innerHTML = mbody;
+        document.querySelector("#modal").classList.add("show");
+        document.querySelector("#modal").style.display = "block";
+        document.querySelector("#modalClose").addEventListener("click", () => {
+            document.querySelector("#modal").classList.remove("show");
+            document.querySelector('#modal').removeAttribute("style");
+        },{once:true});
+    }
+
+    let mHead = "Wecome!"
+    let mBody = "<i>Welcome!</i>"
+    modal(mHead, mBody)
+
 })(); // IIFE
